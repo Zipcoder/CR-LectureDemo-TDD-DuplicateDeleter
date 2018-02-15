@@ -11,10 +11,14 @@ public class IntegerDuplicateDeleterBetterTest {
         IntegerDuplicateDeleter integerDuplicateDeleter = new IntegerDuplicateDeleter(arrayOfNumbers);
 
         Integer threshold = 2;
+        Integer threshold2 = 3;
         Integer[] expected = {2,2,2};
+        Integer[] expected2 = {1,1,3,3};
         Integer[] actual = integerDuplicateDeleter.removeDuplicatesExactly(threshold);
+        Integer[] actual2 = integerDuplicateDeleter.removeDuplicatesExactly(threshold2);
 
         Assert.assertArrayEquals(expected, actual);
+        //Assert.assertArrayEquals(expected2, actual2);
 
     }
 
@@ -26,14 +30,14 @@ public class IntegerDuplicateDeleterBetterTest {
 
         // When
         Integer expected = 3;
-        Integer actual = integerDuplicateDeleter.countNumberOfOccurences(2);
+        Integer actual = integerDuplicateDeleter.countNumberOfOccurrences(2);
 
         //Expected
         Assert.assertEquals("The value should be 3", expected, actual);
     }
 
     @Test
-    public void extractIndexValueAndAppendToOutput(){
+    public void extractIndexValueAndAppendToOutputTest(){
         // Given
         Integer[] arrayOfNumber = {1,2,1,1,1,2,2};
 

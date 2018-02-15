@@ -20,10 +20,17 @@ public final class IntegerDuplicateDeleter extends DuplicateDeleter<Integer> {
 
     @Override
     public Integer[] removeDuplicatesExactly(int exactNumberOfDuplications) {
-        return new Integer[0];
+
+        for (int i = 0; i < this.array.length; i++) {
+            if (countNumberOfOccurrences(this.array[i]) != exactNumberOfDuplications) {
+                extractIndexValueAndAppendToOutput(i);
+            }
+        }
+
+        return getOutput();
     }
 
-    protected Integer countNumberOfOccurences(Integer indexValue){
+    protected Integer countNumberOfOccurrences(Integer indexValue){
         Integer count = 0;
         for (Integer value: this.array) {
             if(value.equals(indexValue)) count++;
