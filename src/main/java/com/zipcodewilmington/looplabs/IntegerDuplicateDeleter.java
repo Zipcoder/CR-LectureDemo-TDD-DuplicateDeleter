@@ -20,13 +20,18 @@ public final class IntegerDuplicateDeleter extends DuplicateDeleter<Integer> {
 
     @Override
     public Integer[] removeDuplicatesExactly(int exactNumberOfDuplications) {
-        return new Integer[0];
+        for(int i = 0; i < this.array.length; i++) {
+            if(countNumberOfOccurences(this.array[i]) != exactNumberOfDuplications) {
+                extractIndexValueAndAppendToOutput(i);
+            }
+        }
+        return output;
     }
 
     protected Integer countNumberOfOccurences(Integer indexValue){
         Integer count = 0;
-        for (Integer value: this.array) {
-            if(value.equals(indexValue)) count++;
+        for (int i = 0; i < this.array.length; i++) {
+            if(this.array[i].equals(indexValue)) count++;
         }
         return count;
     }
@@ -35,9 +40,9 @@ public final class IntegerDuplicateDeleter extends DuplicateDeleter<Integer> {
         return output;
     }
 
-    protected void extractIndexValueAndAppendToOutput(Integer indexValue){
+    protected void extractIndexValueAndAppendToOutput(Integer i){
         // Getting value from Input array at index
-        Integer value = this.array[indexValue];
+        Integer value = this.array[i];
 
         // create a new array that is one size bigger than current output
         Integer[] tempArray = new Integer[this.output.length + 1];
@@ -51,4 +56,6 @@ public final class IntegerDuplicateDeleter extends DuplicateDeleter<Integer> {
         // no longer point to original array point to temparray
         this.output = tempArray;
     }
+
+
 }

@@ -3,6 +3,8 @@ package com.zipcodewilmington.looplabs;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.Assert.assertArrayEquals;
+
 public class IntegerDuplicateDeleterBetterTest {
 
     @Test
@@ -17,6 +19,7 @@ public class IntegerDuplicateDeleterBetterTest {
         Assert.assertArrayEquals(expected, actual);
 
     }
+
 
     @Test
     public void countNumberOfOccurrencesTest(){
