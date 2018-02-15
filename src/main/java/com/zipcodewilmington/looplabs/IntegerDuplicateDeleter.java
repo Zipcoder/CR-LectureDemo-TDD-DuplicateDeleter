@@ -15,12 +15,20 @@ public final class IntegerDuplicateDeleter extends DuplicateDeleter<Integer> {
 
     @Override
     public Integer[] removeDuplicates(int maxNumberOfDuplications) {
+
         return new Integer[0];
     }
 
+
     @Override
     public Integer[] removeDuplicatesExactly(int exactNumberOfDuplications) {
-        return new Integer[0];
+        for (int i = 0; i < array.length; i++) {
+            //Counts how many times each number occurs in the rray
+            if (!(countNumberOfOccurences(array[i]).equals(exactNumberOfDuplications))) {
+                extractIndexValueAndAppendToOutput(i);
+            }
+        }
+        return this.output;
     }
 
     protected Integer countNumberOfOccurences(Integer indexValue){
@@ -32,6 +40,7 @@ public final class IntegerDuplicateDeleter extends DuplicateDeleter<Integer> {
     }
 
     public Integer[] getOutput() {
+
         return output;
     }
 
