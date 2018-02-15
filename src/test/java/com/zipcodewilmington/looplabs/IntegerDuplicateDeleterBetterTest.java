@@ -3,7 +3,22 @@ package com.zipcodewilmington.looplabs;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.Assert.assertArrayEquals;
+
 public class IntegerDuplicateDeleterBetterTest {
+
+    @Test
+    public void removeDuplicatesTest(){
+        Integer[] numberArray = {2,3,6,3,2,3,1,2,3,6};
+        IntegerDuplicateDeleter integerDuplicate = new IntegerDuplicateDeleter(numberArray);
+
+        Integer duplicatesAtLeast = 3;
+        Integer[] expected = {6,1,6};
+        Integer[] actual = integerDuplicate.removeDuplicates(duplicatesAtLeast);
+
+        Assert.assertArrayEquals(expected, actual);
+
+    }
 
     @Test
     public void removeDuplicatesExactlyTest(){
@@ -15,8 +30,8 @@ public class IntegerDuplicateDeleterBetterTest {
         Integer[] actual = integerDuplicateDeleter.removeDuplicatesExactly(threshold);
 
         Assert.assertArrayEquals(expected, actual);
-
     }
+
 
     @Test
     public void countNumberOfOccurrencesTest(){
